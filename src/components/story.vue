@@ -9,7 +9,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
 .story{
   text-align: center;
 }
