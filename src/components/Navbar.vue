@@ -1,7 +1,23 @@
 <template>
-   <md-toolbar  class="navbar">
-     <h2 class="md-title" style="flex: 1">知乎日报</h2>
-  </md-toolbar>
+  <div class="navbar">
+     <md-toolbar>
+       <md-button class="md-icon-button" @click="toggleSideNav">
+         <md-icon class="md-primary">menu</md-icon>
+       </md-button>
+       <h2 class="md-title" style="flex: 1">知乎日报</h2>
+       <p>{{msg}}</p>
+    </md-toolbar>
+    <!-- sidenav -->
+    <md-sidenav class="md-left" ref="leftSidenav">
+      <md-list>
+       <md-list-item>
+         <router-link to="/">首页</router-link>
+       </md-list-item>
+       <md-list-item>
+         <router-link to="/story">主题</router-link>
+       </md-list-item>
+   </md-sidenav>
+  </div>
 </template>
 
 <script>
@@ -11,12 +27,17 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  methods:{
+    toggleSideNav(){
+      this.$refs.leftSidenav.toggle()
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="css" scoped>
 h1, h2 {
   font-weight: normal;
 }
