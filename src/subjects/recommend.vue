@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="index">
-    index.vue
+  <div class="recommend">
+    recommend.vue
   </div>
 </template>
 
@@ -10,7 +10,4 @@ export default {
 </script>
 
 <style lang="css">
-  .index{
-    text-align: center;
-  }
 </style>

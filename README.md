@@ -1,6 +1,6 @@
 # zhihuribao
 
-> A Vue.js project
+> vue.js vue-router vuex vue-material axios scss
 
 ## Build Setup
 
