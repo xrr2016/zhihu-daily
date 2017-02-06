@@ -1,10 +1,14 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from 'vue'
+import Vuex from 'vuex'
 import axios from 'axios'
 
-const zhihuAPI = "http://news-at.zhihu.com/api/4/news";
-axios.default.timeout = 4000;
-axios.default.baseURL = zhihuAPI
+const jsonBird = "https://bird.ioliu.cn/v1/?url="
+const zhihuAPI = "http://news-at.zhihu.com/api/4/news"
+const doubanAPI = "https://api.douban.com/v2"
+axios.defaults.timeout = 4000
+// axios.default.baseURL = jsonBird + zhihuAPI
+axios.defaults.baseURL = jsonBird + doubanAPI
+console.log(axios.defaults.baseURL)
 
 Vue.use(Vuex)
 
@@ -12,16 +16,23 @@ const store = new Vuex.Store({
   state: {
     latestStories: [],
     themes: [],
-    hotStories: []
+    hotStories: [],
+    movies:[]
   },
   getters: {
     latestStories(state){
       return state.latestStories
+    },
+    movies(state){
+      return state.movies
     }
   },
   mutations: {
     setLatestStories(state, latestStories) {
       state.latestStories = latestStories
+    },
+    setMovies(state,payload){
+      state.movies = payload.movies
     }
   },
   actions: {
@@ -33,7 +44,17 @@ const store = new Vuex.Store({
             latestStories: response.data.stories
           })
         })
-        .catch(err => console.dir(err));
+        .catch(e => console.dir(e))
+    },
+    loadMovies( {commit} ){
+      axios.get('/movie/in_theaters')
+           .then(res => {
+             console.dir(res)
+             commit('setMovies',{
+               movies : res.data.subjects
+             })
+           })
+           .catch(e => console.log(e))
     }
   }
 })

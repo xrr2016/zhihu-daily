@@ -2,10 +2,12 @@
   <div class="page">
     page.vue
     <ul>
-      <li v-for="story of latestStories">
-        {{ story.title }} - {{ story .id }}
+      <li v-for="movie of movies">
+        {{ movie.title }} - {{ movie.id }}
       </li>
     </ul>
+    <br>
+    <button type="button" @click="getMovies" >loadMovies</button>
   </div>
 </template>
 
@@ -15,8 +17,15 @@ export default {
   name:"appPage",
   computed : {
     ...mapGetters([
-      'latestStories'
+      'latestStories',
+      'movies'
     ])
+  },
+  methods:{
+    getMovies(){
+      this.$store.dispatch('loadMovies')
+      console.log('loadMovies');
+    }
   }
 }
 </script>
