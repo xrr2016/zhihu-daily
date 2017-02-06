@@ -5,15 +5,20 @@
         <router-link to="/" tag="h2" class="md-title" style="flex:1;">
           <img src="../assets/imgs/brand.png" alt="知乎日报">
         </router-link>
+        <md-button class="md-raised md-primary">
+          刷新
+        </md-button>
         <h2 class="md-title" style="flex: 1;">
-          {{ this.$route.name }}
+          {{ this.$route.name | routeFormat }}
         </h2>
         <md-button class="md-icon-button"  @click="toggleSideNav">
           <md-icon>menu</md-icon>
         </md-button>
         <md-button class="md-raised md-primary">上一篇</md-button>
         <md-button class="md-raised md-primary">下一篇</md-button>
-        <img src="../assets/imgs/github.svg" alt="">
+        <a href="https://github.com/xrr2016/ZhiHuRiBao" target="_blank">
+          <img src="../assets/imgs/github.svg" alt="">
+        </a>
     </md-toolbar>
     <!-- 侧边栏 -->
     <md-sidenav class="md-left" ref="rightSidenav">
