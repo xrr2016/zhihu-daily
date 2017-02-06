@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="index">
     index.vue
+    <!-- {{this.$store.state.msg}} -->
   </div>
 </template>
 

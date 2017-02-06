@@ -2,14 +2,18 @@
   <div class="navbar">
     <!-- 导航栏 -->
      <md-toolbar>
-       <md-button class="md-icon-button" @click="toggleSideNav">
-         <md-icon>menu</md-icon>
-       </md-button>
-       <h2 class="md-title" style="flex: 1">知乎日报</h2>
-       <p>{{msg}}</p>
+        <router-link to="/" tag="h2" class="md-title" style="flex:1;">
+          <img src="../assets/imgs/zhihu.png" alt="知乎日报">
+        </router-link>
+        <h2 class="md-title" style="flex: 1;">
+          {{ this.$route.name }}
+        </h2>
+        <md-button class="md-icon-button" style="flex:1;" @click="toggleSideNav">
+          <md-icon>menu</md-icon>
+        </md-button>
     </md-toolbar>
     <!-- 侧边栏 -->
-    <md-sidenav class="md-left" ref="leftSidenav">
+    <md-sidenav class="md-left" ref="rightSidenav">
       <md-list>
        <md-list-item>
          <router-link to="/">首页</router-link>
@@ -62,9 +66,12 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
+  computed:{
+
+  },
   methods:{
     toggleSideNav(){
-      this.$refs.leftSidenav.toggle()
+      this.$refs.rightSidenav.toggle()
     },
     closeSideNav(){
       console.log('closeSideNav');
@@ -90,7 +97,4 @@ li {
   margin: 0 10px;
 }
 
-a {
-  color: #42b983;
-}
 </style>
