@@ -1,15 +1,20 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from 'axios';
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state:{
-    msg : "hello from vuex"
+    stories:{},
+    themes:{},
+    hotStories:{}
   },
   getters:{},
   mutations:{},
-  actions:{}
+  actions:{
+    
+  }
 })
 
 export default store

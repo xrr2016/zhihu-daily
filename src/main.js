@@ -8,6 +8,16 @@ import './assets/material.font.css'
 
 Vue.use(VueMaterial)
 
+Vue.filter('routeFormat',(value) => {
+  switch (value) {
+    case "":
+
+      break;
+    default:
+
+  }
+})
+
 new Vue({
   router,
   store,

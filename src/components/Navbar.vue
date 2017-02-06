@@ -3,14 +3,17 @@
     <!-- 导航栏 -->
      <md-toolbar>
         <router-link to="/" tag="h2" class="md-title" style="flex:1;">
-          <img src="../assets/imgs/zhihu.png" alt="知乎日报">
+          <img src="../assets/imgs/brand.png" alt="知乎日报">
         </router-link>
         <h2 class="md-title" style="flex: 1;">
           {{ this.$route.name }}
         </h2>
-        <md-button class="md-icon-button" style="flex:1;" @click="toggleSideNav">
+        <md-button class="md-icon-button"  @click="toggleSideNav">
           <md-icon>menu</md-icon>
         </md-button>
+        <md-button class="md-raised md-primary">上一篇</md-button>
+        <md-button class="md-raised md-primary">下一篇</md-button>
+        <img src="../assets/imgs/github.svg" alt="">
     </md-toolbar>
     <!-- 侧边栏 -->
     <md-sidenav class="md-left" ref="rightSidenav">
