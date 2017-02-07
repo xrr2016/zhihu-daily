@@ -56,6 +56,11 @@ Vue.filter('routeFormat', (value) => {
       return "首页"
   }
 })
+Vue.filter('imageUrlPrefix',(value) => {
+  const url = value.substr(7)
+  const prefix = "https://images.weserv.nl/?url="
+  return prefix + url
+})
 
 new Vue({
   router,

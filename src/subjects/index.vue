@@ -5,8 +5,22 @@
       <!-- top-stories-swiper -->
         <swiper :options="swiperOption" ref="mySwiperA">
           <swiper-slide v-for="story of topStories">
-            <img :src="story.image">
-            <div class="title">{{ story.title }}</div>
+              <!-- <md-card>
+                <md-card-media-cover md-text-scrim>
+                  <md-card-media md-ratio="16:9">
+                    <img :src="story.image | imageUrlPrefix">
+                  </md-card-media>
+                  <md-card-area>
+                    <md-card-header>
+                      <div class="md-title">{{ story.title }}</div>
+                    </md-card-header>
+                  </md-card-area>
+                </md-card-media-cover>
+              </md-card> -->
+              <div class="swiper-card">
+                <img :src="story.image | imageUrlPrefix">
+                <h2>{{ story.title }}</h2>
+              </div>
           </swiper-slide>
           <div class="swiper-pagination"  slot="pagination"></div>
         </swiper>
@@ -17,7 +31,7 @@
               <div class="md-title card-title">{{ story.title }}</div>
             </md-card-header-text>
             <md-card-media>
-              <img :src="story.images[0]">
+              <img :src="story.images[0] | imageUrlPrefix">
             </md-card-media>
           </md-card-header>
         </md-card>
@@ -34,12 +48,14 @@ export default {
   },
   data() {
     return {
-      latestStories : [],
-      topStories : [],
-      swiperOption :{
+      latestStories: [],
+      topStories: [],
+      imgPrefix: this.$store.state.imageUrlPrefix,
+      swiperOption: {
         pagination: '.swiper-pagination',
         paginationClickable: true,
-        speed: 600,
+        speed: 800,
+        autoplay: true
       }
     }
   },
@@ -62,11 +78,28 @@ export default {
 
 <style lang="scss" scoped>
 .index {
+    .swiper-card{
+      position: relative;
+      img{
+        width: 100%;
+      }
+      h2{
+        position: absolute;
+        width: 90%;
+        bottom: 8%;
+        margin-left: 24px;
+        color: #f4f4f4;
+        font-size: 34px;
+        text-indent: 2em;
+        line-height: 1.4;
+        font-weight: bolder;
+      }
+    }
     .card {
         width: 100%;
-        margin: 24px 0;
-        .card-title{
-          text-align: left;
+        margin: 18px 0;
+        .card-title {
+            text-align: left;
         }
     }
 }
