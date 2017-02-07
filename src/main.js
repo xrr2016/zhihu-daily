@@ -3,16 +3,14 @@ import App from './App'
 import axios from 'axios'
 import router from './router'
 import store from './store'
+import VueSwiper from 'vue-awesome-swiper'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 import './assets/material.font.css'
 
+Vue.use(VueSwiper)
 Vue.use(VueMaterial)
-const jsonBird = "https://bird.ioliu.cn/v1/?url="
-const zhihuAPI = "http://news-at.zhihu.com/api/4/news"
-axios.defaults.timeout = 4000
-axios.default.baseURL = jsonBird + zhihuAPI
-
+Vue.prototype.$http = axios
 Vue.filter('routeFormat', (value) => {
   switch (value) {
     case 'index':
