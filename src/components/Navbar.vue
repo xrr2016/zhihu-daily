@@ -8,6 +8,7 @@
         <md-button class="md-raised md-primary">
           刷新
         </md-button>
+        <md-switch class="md-primary" @change="changeMode"></md-switch>
         <h2 class="md-title" style="flex: 1;">
           {{ this.$route.name | routeFormat }}
         </h2>
@@ -84,6 +85,9 @@ export default {
     closeSideNav(){
       console.log('closeSideNav');
       this.$refs.leftSidenav.close()
+    },
+    changeMode(){
+      this.$store.dispatch('toggleMode')
     }
   }
 }

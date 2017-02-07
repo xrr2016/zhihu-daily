@@ -1,18 +1,18 @@
 <template lang="html">
   <div class="index">
     index.vue
-    <app-page>
+    <!-- <app-page>
       <slot>app-page</slot>
-    </app-page>
+    </app-page> -->
   </div>
 </template>
 
 <script>
-import page from '../components/page'
+// import page from '../components/page'
 export default {
   name:"index",
   components:{
-    "app-page" : page
+    // "app-page" : page
   }
 }
 </script>
