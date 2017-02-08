@@ -2,23 +2,21 @@
   <div class="navbar">
     <!-- 导航栏 -->
      <md-toolbar>
-        <router-link to="/" tag="h2" class="md-title" style="flex:1;">
-          <img src="../assets/imgs/brand.png" alt="知乎日报">
+        <router-link to="/">
+          <img class="navbar-img" src="../assets/imgs/brand.png" alt="知乎日报">
         </router-link>
-        <md-button class="md-raised md-primary">
-          刷新
-        </md-button>
-        <md-switch class="md-primary" @change="changeMode"></md-switch>
-        <h2 class="md-title" style="flex: 1;">
+        <h2 class="md-title navbar-title">
           {{ this.$route.name | routeFormat }}
         </h2>
-        <md-button class="md-icon-button"  @click="toggleSideNav">
+        <md-button  class="md-icon-button"  @click="toggleSideNav">
           <md-icon>menu</md-icon>
         </md-button>
-        <md-button class="md-raised md-primary">上一篇</md-button>
-        <md-button class="md-raised md-primary">下一篇</md-button>
+        <!-- <md-button class="md-raised md-primary">上一篇</md-button>
+        <md-button class="md-raised md-primary">下一篇</md-button> -->
+        <md-button class="md-raised md-primary" @click="refresh" >刷新</md-button>
+        <md-switch class="md-primary" @change="changeMode"></md-switch>
         <a href="https://github.com/xrr2016/ZhiHuRiBao" target="_blank">
-          <img src="../assets/imgs/github.svg" alt="">
+          <img class="navbar-img" src="../assets/imgs/github.svg">
         </a>
     </md-toolbar>
     <!-- 侧边栏 -->
@@ -75,20 +73,18 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
-  computed:{
-
-  },
+  computed:{},
   methods:{
     toggleSideNav(){
       this.$refs.rightSidenav.toggle()
     },
     closeSideNav(){
-      console.log('closeSideNav');
       this.$refs.leftSidenav.close()
     },
     changeMode(){
       this.$store.dispatch('toggleMode')
-    }
+    },
+    refresh(){}
   }
 }
 </script>
@@ -108,5 +104,10 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-
+.navbar-img{
+  height: 45px;
+}
+.navbar-title{
+  text-align: center;
+}
 </style>

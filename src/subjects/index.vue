@@ -1,40 +1,30 @@
 <template lang="html">
   <div class="index">
     <md-layout md-gutter md-align="center">
-      <md-layout md-flex="50" >
       <!-- top-stories-swiper -->
-        <swiper :options="swiperOption" ref="mySwiperA">
-          <swiper-slide v-for="story of topStories">
-              <!-- <md-card>
-                <md-card-media-cover md-text-scrim>
-                  <md-card-media md-ratio="16:9">
-                    <img :src="story.image | imageUrlPrefix">
-                  </md-card-media>
-                  <md-card-area>
-                    <md-card-header>
-                      <div class="md-title">{{ story.title }}</div>
-                    </md-card-header>
-                  </md-card-area>
-                </md-card-media-cover>
-              </md-card> -->
-              <div class="swiper-card">
-                <img :src="story.image | imageUrlPrefix">
-                <h2>{{ story.title }}</h2>
-              </div>
-          </swiper-slide>
-          <div class="swiper-pagination"  slot="pagination"></div>
+      <md-layout md-flex-large="55" md-align="center" md-flex-medium="55" md-flex-small="100" md-flex-xsmall="100">
+        <swiper :options="swiperOption" ref="mySwiperA" class="swiper">
+              <swiper-slide v-for="story of topStories">
+                  <div class="swiper-card">
+                    <img  :src="story.image | imageUrlPrefix">
+                    <h2>{{ story.title }}</h2>
+                  </div>
+              </swiper-slide>
+              <div class="swiper-scrollbar" slot="scrollbar"></div>
         </swiper>
+      </md-layout>
         <!-- stories-list -->
-        <md-card class="card" v-for="story of latestStories">
-          <md-card-header>
-            <md-card-header-text>
-              <div class="md-title card-title">{{ story.title }}</div>
-            </md-card-header-text>
-            <md-card-media>
-              <img :src="story.images[0] | imageUrlPrefix">
-            </md-card-media>
-          </md-card-header>
-        </md-card>
+      <md-layout md-flex-large="55" md-align="center" md-flex-medium="55" md-flex-small="100" md-flex-xsmall="100">
+          <md-card class="card" v-for="story of latestStories">
+            <md-card-header>
+              <md-card-header-text>
+                <div class="md-title card-title">{{ story.title }}</div>
+              </md-card-header-text>
+              <md-card-media>
+                <img :src="story.images[0] | imageUrlPrefix">
+              </md-card-media>
+            </md-card-header>
+          </md-card>
       </md-layout>
     </md-layout>
   </div>
@@ -54,8 +44,10 @@ export default {
       swiperOption: {
         pagination: '.swiper-pagination',
         paginationClickable: true,
+        scrollbar:'.swiper-scrollbar',
         speed: 800,
-        autoplay: true
+        grabCursor : true,
+        autoplay: 3000
       }
     }
   },
@@ -78,10 +70,11 @@ export default {
 
 <style lang="scss" scoped>
 .index {
+  .swiper{
     .swiper-card{
       position: relative;
       img{
-        width: 100%;
+        width:100%;
       }
       h2{
         position: absolute;
@@ -95,7 +88,8 @@ export default {
         font-weight: bolder;
       }
     }
-    .card {
+  }
+  .card {
         width: 100%;
         margin: 18px 0;
         .card-title {
