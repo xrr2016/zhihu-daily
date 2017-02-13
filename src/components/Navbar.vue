@@ -1,26 +1,36 @@
 <template>
-  <div class="navbar">
+  <div class="phone-viewport complete-example">
     <!-- 导航栏 -->
-     <md-toolbar>
-        <router-link to="/">
+     <md-toolbar class="md-large">
+        <!-- <router-link to="/">
           <img class="navbar-img" src="../assets/imgs/brand.png" alt="知乎日报">
-        </router-link>
-        <h2 class="md-title navbar-title">
-          {{ this.$route.name | routeFormat }}
-        </h2>
-        <md-button  class="md-icon-button"  @click="toggleSideNav">
-          <md-icon>menu</md-icon>
-        </md-button>
+        </router-link> -->
+        <div class="md-toolbar-container">
+          <md-button  class="md-icon-button"  @click="toggleSideNav">
+            <md-icon>menu</md-icon>
+          </md-button>
+           <span style="flex: 1"></span>
+          <md-button  class="md-icon-button">
+            <a href="https://github.com/xrr2016/ZhiHuRiBao" target="_blank">
+              <img class="navbar-img" src="../assets/imgs/github.svg">
+            </a>
+          </md-button>
+        </div>
+        <div class="md-toolbar-container">
+          <h1 class="md-title" style="flex: 1;text-align:center;">
+            {{ this.$route.name | routeFormat }}
+          </h1>
+        </div>
         <!-- <md-button class="md-raised md-primary">上一篇</md-button>
         <md-button class="md-raised md-primary">下一篇</md-button> -->
-        <md-button class="md-raised md-primary" @click="refresh" >刷新</md-button>
-        <md-switch class="md-primary" @change="changeMode"></md-switch>
-        <a href="https://github.com/xrr2016/ZhiHuRiBao" target="_blank">
+        <!-- <md-button class="md-raised md-primary" @click="refresh" >刷新</md-button> -->
+        <!-- <md-switch class="md-primary" @change="changeMode"></md-switch> -->
+        <!-- <a href="https://github.com/xrr2016/ZhiHuRiBao" target="_blank">
           <img class="navbar-img" src="../assets/imgs/github.svg">
-        </a>
+        </a> -->
     </md-toolbar>
     <!-- 侧边栏 -->
-    <md-sidenav class="md-left" ref="rightSidenav">
+    <!-- <md-sidenav class="md-left" ref="rightSidenav">
       <md-list>
        <md-list-item>
          <router-link to="/">首页</router-link>
@@ -61,7 +71,7 @@
        <md-list-item>
          <router-link to="/sports">体育日报</router-link>
        </md-list-item>
-   </md-sidenav>
+   </md-sidenav> -->
   </div>
 </template>
 
@@ -91,23 +101,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-.navbar-img{
-  height: 45px;
-}
-.navbar-title{
-  text-align: center;
-}
+// h1, h2 {
+//   font-weight: normal;
+// }
+//
+// ul {
+//   list-style-type: none;
+//   padding: 0;
+// }
+//
+// li {
+//   display: inline-block;
+//   margin: 0 10px;
+// }
+// .navbar-img{
+//   height: 45px;
+// }
+// .navbar-title{
+//   text-align: center;
+// }
 </style>
