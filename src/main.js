@@ -3,13 +3,7 @@ import App from './App'
 import axios from 'axios'
 import router from './router'
 import store from './store'
-import VueSwiper from 'vue-awesome-swiper'
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.css'
-import './assets/material.font.css'
 
-Vue.use(VueSwiper)
-Vue.use(VueMaterial)
 Vue.prototype.$http = axios
 Vue.filter('routeFormat', (value) => {
   switch (value) {

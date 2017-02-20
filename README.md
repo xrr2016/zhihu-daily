@@ -1,6 +1,6 @@
-# zhihuribao
+# 更好看的web版知乎日报
 
-> vue.js vue-router vuex vue-material axios scss
+> vue.js vue-router vuex materialize axios scss
 
 ## Build Setup
 
@@ -17,4 +17,4 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-written by xrr2016
+written by [xrr2016](https://github.com/xrr2016)

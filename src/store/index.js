@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 // import axios from 'axios'
-//
 const jsonBird = "https://bird.ioliu.cn/v1/?url="
 const zhihuAPI = "http://news-at.zhihu.com/api/4/news"
-// const doubanAPI = "https://api.douban.com/v2"
 // axios.defaults.timeout = 4000
 // // axios.default.baseURL = jsonBird + zhihuAPI
 // axios.defaults.baseURL = jsonBird + doubanAPI

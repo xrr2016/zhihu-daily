@@ -1,77 +1,16 @@
 <template>
-  <div class="phone-viewport complete-example">
-    <!-- 导航栏 -->
-     <md-toolbar class="md-large">
-        <!-- <router-link to="/">
-          <img class="navbar-img" src="../assets/imgs/brand.png" alt="知乎日报">
-        </router-link> -->
-        <div class="md-toolbar-container">
-          <md-button  class="md-icon-button"  @click="toggleSideNav">
-            <md-icon>menu</md-icon>
-          </md-button>
-           <span style="flex: 1"></span>
-          <md-button  class="md-icon-button">
-            <a href="https://github.com/xrr2016/ZhiHuRiBao" target="_blank">
-              <img class="navbar-img" src="../assets/imgs/github.svg">
-            </a>
-          </md-button>
-        </div>
-        <div class="md-toolbar-container">
-          <h1 class="md-title" style="flex: 1;text-align:center;">
-            {{ this.$route.name | routeFormat }}
-          </h1>
-        </div>
-        <!-- <md-button class="md-raised md-primary">上一篇</md-button>
-        <md-button class="md-raised md-primary">下一篇</md-button> -->
-        <!-- <md-button class="md-raised md-primary" @click="refresh" >刷新</md-button> -->
-        <!-- <md-switch class="md-primary" @change="changeMode"></md-switch> -->
-        <!-- <a href="https://github.com/xrr2016/ZhiHuRiBao" target="_blank">
-          <img class="navbar-img" src="../assets/imgs/github.svg">
-        </a> -->
-    </md-toolbar>
-    <!-- 侧边栏 -->
-    <!-- <md-sidenav class="md-left" ref="rightSidenav">
-      <md-list>
-       <md-list-item>
-         <router-link to="/">首页</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/psychology">日常心理学</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/recommend">用户推荐日报</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/movie">电影日报</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/notBoring">不许无聊</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/design">设计日报</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/bigCompany">大公司日报</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/finance">财经日报</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/internet">互联网安全</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/game">开始游戏</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/music">音乐日报</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/anime">动漫日报</router-link>
-       </md-list-item>
-       <md-list-item>
-         <router-link to="/sports">体育日报</router-link>
-       </md-list-item>
-   </md-sidenav> -->
+  <div class="">
+    <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+
   </div>
 </template>
 
@@ -80,44 +19,15 @@ export default {
   name: 'navbar',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+
     }
   },
   computed:{},
-  methods:{
-    toggleSideNav(){
-      this.$refs.rightSidenav.toggle()
-    },
-    closeSideNav(){
-      this.$refs.leftSidenav.close()
-    },
-    changeMode(){
-      this.$store.dispatch('toggleMode')
-    },
-    refresh(){}
-  }
+  methods:{}
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-// h1, h2 {
-//   font-weight: normal;
-// }
-//
-// ul {
-//   list-style-type: none;
-//   padding: 0;
-// }
-//
-// li {
-//   display: inline-block;
-//   margin: 0 10px;
-// }
-// .navbar-img{
-//   height: 45px;
-// }
-// .navbar-title{
-//   text-align: center;
-// }
+
 </style>
