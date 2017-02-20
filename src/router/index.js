@@ -3,19 +3,19 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import index from '../subjects/index'
-import psychology from '../subjects/psychology'
-import recommend from '../subjects/recommend'
-import movie from '../subjects/movie'
-import notBoring from '../subjects/notBoring'
-import design from '../subjects/design'
-import bigCompany from '../subjects/bigCompany'
-import finance from '../subjects/finance'
-import internet from '../subjects/internet'
-import game from '../subjects/game'
-import music from '../subjects/music'
-import anime from '../subjects/anime'
-import sports from '../subjects/sports'
+import index from '../views/index'
+import psychology from '../views/psychology'
+import recommend from '../views/recommend'
+import movie from '../views/movie'
+import notBoring from '../views/notBoring'
+import design from '../views/design'
+import bigCompany from '../views/bigCompany'
+import finance from '../views/finance'
+import internet from '../views/internet'
+import game from '../views/game'
+import music from '../views/music'
+import anime from '../views/anime'
+import sports from '../views/sports'
 
 export default new Router({
   routes: [

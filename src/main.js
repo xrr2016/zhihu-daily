@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
+import $ from 'jquery'
 import router from './router'
 import store from './store'
+import './assets/material.font.css'
+import 'materialize-css/dist/css/materialize.css'
+import 'materialize-css/dist/js/materialize.min.js'
 
 Vue.prototype.$http = axios
 Vue.filter('routeFormat', (value) => {
@@ -57,6 +61,9 @@ Vue.filter('imageUrlPrefix',(value) => {
 })
 
 new Vue({
+  created(){
+    // console.log($)
+  },
   router,
   store,
   render: h => h(App)
