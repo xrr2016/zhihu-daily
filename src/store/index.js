@@ -7,7 +7,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    API: jsonBird + zhihuAPI
+    API: jsonBird + zhihuAPI,
+    storyId: ''
   },
   getters: {
   },

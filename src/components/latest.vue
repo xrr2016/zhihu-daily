@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="latest">
+  <div class="container latest">
     latest.vue
   </div>
 </template>
@@ -29,5 +29,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .latest{}
+  .latest{
+    min-height: 100vh;
+    padding-bottom: 50px;
+  }
 </style>

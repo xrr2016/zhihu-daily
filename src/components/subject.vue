@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="subject">
+  <div class="container subject">
     subject.vue
   </div>
 </template>
@@ -9,5 +9,9 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss" scoped>
+  .subject{
+    min-height: 100vh;
+    padding-bottom: 50px;
+  }
 </style>
