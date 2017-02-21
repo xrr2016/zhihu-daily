@@ -1,18 +1,21 @@
 <template>
-  <div class="navbar-fixed">
-    <nav class="nav purple lighten-2">
-      <div class="nav-wrapper">
-        <!-- <a href="/" class="brand-logo">Logo</a> -->
-        <router-link to='/' class="left brand-logo">
-          <img class="app-logo" :src="logo" alt="知乎日报">
-        </router-link>
-        <span class="brand-logo center app-route-name">首页</span>
-        <a class="right" href="">
-          <img class="app-github" :src="github" alt="Github">
-        </a>
+    <div class="navbar-fixed">
+      <nav class="nav purple lighten-2">
+        <div class="nav-wrapper">
+          <!-- <a href="/" class="brand-logo">Logo</a> -->
+          <router-link to='/' class="left brand-logo">
+            <img class="app-logo" :src="logo" alt="知乎日报">
+          </router-link>
+          <span class="brand-logo center app-route-name">首页</span>
+          <a class="right" href="">
+            <img class="app-github" :src="github" alt="Github">
+          </a>
+          <!-- <div class="progress">
+          <div class="indeterminate purple lighten-2"></div>
+        </div> -->
       </div>
     </nav>
-  </div>
+    </div>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="finance">
-    finance
+  <div class="subject">
+    subject.vue
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="recommend">
-    recommend.vue
+  <div class="story">
+    story.vue
   </div>
 </template>
 
