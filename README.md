@@ -28,7 +28,9 @@ npm run build --report
 1. 启动界面图像获取: http://news-at.zhihu.com/api/4/start-image/1080\*1776
 
 2. 软件版本查询
+
    Android: http://news-at.zhihu.com/api/4/version/android/2.3.0
+
    iOS: http://news-at.zhihu.com/api/4/version/ios/2.3.0
 
 3. 最新消息: http://news-at.zhihu.com/api/4/news/latest      
@@ -37,7 +39,7 @@ npm run build --report
 
 5. 过往消息: http://news-at.zhihu.com/api/4/news/before/20131119
 
-6. 新闻额外信息: http://news-at.zhihu.com/api/4/story-extra/\#{id}
+6. 新闻额外信息: http://news-at.zhihu.com/api/4/story-extra/#{id}
 
 7. 新闻对应长评论查看: http://news-at.zhihu.com/api/4/story/8997528/long-comments
 
@@ -53,12 +55,14 @@ npm run build --report
 
 13. 栏目具体消息查看: http://news-at.zhihu.com/api/3/section/1
 
-14. 查看新闻的推荐者: http://news-at.zhihu.com/api/4/story/\#{id}/recommenders
+14. 查看新闻的推荐者: http://news-at.zhihu.com/api/4/story/#{id}/recommenders
 
-15. 获取某个专栏之前的新闻: http://news-at.zhihu.com/api/4/section/\#{section id}/before/\#{timestamp}
+15. 获取某个专栏之前的新闻: http://news-at.zhihu.com/api/4/section/#{section id}/before/#{timestamp}
 
 16. 查看 Editor 的主页
-    Android: http://news-at.zhihu.com/api/4/editor/\#{id}/profile-page/android
-    iOS: http://news-at.zhihu.com/api/4/editor/\#{id}/profile-page/ios
+
+    Android: http://news-at.zhihu.com/api/4/editor/#{id}/profile-page/android
+
+    iOS: http://news-at.zhihu.com/api/4/editor/#{id}/profile-page/ios
 
 written by [xrr2016](https://github.com/xrr2016),欢迎issue,fork,star.
