@@ -6,9 +6,9 @@ import story from '../components/story'
 
 Vue.use(Router)
 const routes = [
-  {path: '/', component: latest},
-  {path: '/subject/:id', component: subject},
-  {path: '/story/:id', component: story},
+  {path: '/', name: 'index', component: latest},
+  {path: '/subject/:id', name: 'subject', component: subject},
+  {path: '/story/:id', name: 'story', component: story},
   {path: '*', redirect: '/'}
 ]
 

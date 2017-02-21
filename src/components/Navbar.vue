@@ -17,7 +17,8 @@
     </div>
     <ul id="subjects" class="dropdown-content">
       <li class="waves-effect waves-light" v-for="subject of subjects">
-        <router-link class="app-route-link" :title="subject.description" :to="subject.id | themeUrlPrefix">{{ subject.name }}</router-link>
+        <router-link class="app-route-link" :title="subject.description"
+        :to="{name: 'subject', params: {id: subject.id}}">{{ subject.name }}</router-link>
       </li>
     </ul>
   </div>
@@ -88,7 +89,6 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
   .navbar{
-    // background-color: rgb(171, 71, 188);
     .app-logo{
       padding: 12px;
       height: 60px;

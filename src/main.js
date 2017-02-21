@@ -15,9 +15,6 @@ Vue.filter('imageUrlPrefix', (value) => {
   const prefix = 'https://images.weserv.nl/?url='
   return prefix + url
 })
-Vue.filter('themeUrlPrefix', (id) => {
-  return `/subject/${id}`
-})
 
 new Vue({
   created () {

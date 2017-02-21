@@ -1,28 +1,84 @@
 <template lang="html">
   <div class="container latest">
-    latest.vue
+    <div class="preloader-wrapper big active app-loading" v-if="loading">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row top-stories-list" v-else>
+      <!-- top_stories -->
+      <router-link tag="a" class="col l4 m12 s12 top-story-item"
+          :to="{name: 'story', params: {id: topStory.id }}" v-for="topStory of topStories">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img :src="topStory.image | imageUrlPrefix">
+              <span class="card-title">{{ topStory.title }}</span>
+            </div>
+          </div>
+      </router-link>
+      <div class="divider"></div>
+      <div class="col l12 m12 s12">
+        <nav class="purple lighten-2">
+         <div class="nav-wrapper app-change-date">
+           <i class="left large material-icons app-date-prev" @click="prev">keyboard_arrow_left</i>
+           <span class="brand-logo center flow-text app-date">{{ this.date }}</span>
+           <i class="right large material-icons app-date-next" @click="next">keyboard_arrow_right</i>
+         </div>
+       </nav>
+      </div>
+      <!-- stories -->
+      <div class="stories-list">
+          <router-link tag="a" class="col l10 m10 s10 story-item"
+            :to="{name: 'story', params: {id: story.id }}" v-for="story of stories">
+            <div class="card horizontal hoverable">
+              <div class="card-image"><img :src="story.images[0] | imageUrlPrefix"></div>
+              <div class="card-stacked">
+                <div class="card-content"><p class="flow-text">{{ story.title }}</p></div>
+              </div>
+            </div>
+          </router-link>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   created(){
-
+    this.getLatest()
   },
   data(){
     return {
-      latest: {}
+      date: null,
+      stories: [],
+      topStories: [],
+      loading: true
     }
   },
   methods:{
     getLatest(){
-      this.$http.get('/api/latest')
+      this.$http.get('/api/4/news/latest')
                 .then(res => {
-                  this.latest = res.data
+                    this.date = parseInt(res.data.date, 10) + 1
+                    this.stories = res.data.stories
+                    this.topStories = res.data.top_stories
+                    this.loading = false
                 })
                 .catch(e => {
                   console.log(e)
                 })
+    },
+    prev(){
+      this.date -= 1
+    },
+    next(){
+      this.date += 1
     }
   }
 }
@@ -30,7 +86,50 @@ export default {
 
 <style lang="scss" scoped>
   .latest{
+    position: relative;
     min-height: 100vh;
     padding-bottom: 50px;
+    .app-loading{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    .top-stories-list,.stories-list{
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      .top-story-item,.story-item{
+        color: #ba68c8;
+        flex: 1 0 auto;
+      }
+    }
+    .stories-list{
+      .story-item{
+        // .flow-text{
+        //   font-size: 22px;
+        // }
+      }
+    }
+    .app-change-date{
+      display: flex;
+      justify-content: space-around;
+      .app-date-prev,.app-date-next{
+        display: block;
+        width: 100px;
+        cursor: pointer;
+        text-align: center;
+      }
+      .app-date-prev{
+        margin-right: -270px;
+      }
+      .app-date-next{
+        margin-left: -270px;
+      }
+    }
   }
 </style>

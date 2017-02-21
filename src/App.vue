@@ -22,6 +22,10 @@ export default {
   html,body{
     height: 100%;
     background-color: #f4f4f4;
+    ::selection{
+        color: #ba68c8;
+        background-color: #fff;
+    }
     #app {
       margin: 0;
       font-family: Roboto,'Avenir', Helvetica, Arial, sans-serif;
