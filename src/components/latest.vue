@@ -100,13 +100,6 @@ export default {
         flex: 1 0 auto;
       }
     }
-    .stories-list{
-      .story-item{
-        // .flow-text{
-        //   font-size: 22px;
-        // }
-      }
-    }
     .app-change-date{
       display: flex;
       justify-content: space-around;

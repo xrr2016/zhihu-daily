@@ -15,18 +15,19 @@
     <!-- content -->
     <div class="row" v-else>
         <!-- content-image -->
-        <div class="col l10 s12 m12 offset-l1">
+        <div class="col l12 s12 m12" v-if="!!story.image">
           <div class="card">
             <div class="card-image">
-              <img  class ="story-image":src="story.image | imageUrlPrefix">
+              <img  class ="story-image" :src="story.image | imageUrlPrefix">
               <span class="card-title flow-text">{{ story.title }}</span>
             </div>
           </div>
         </div>
+        <div class="divider" v-else></div>
         <!-- content-body -->
-        <div class="col l10 s12 m12 offset-l1" v-html="storyBody"></div>
+        <div class="col l12 s12 m12" v-html="storyBody"></div>
         <!-- long-comments -->
-        <div class="col l10 s12 m12 offset-l1">
+        <div class="col l12 s12 m12">
             <div class="card-panel" v-for="comment of longComments">
                 <div class="card-header">
                   <img :src="comment.avatar | imageUrlPrefix">
@@ -39,19 +40,19 @@
             </div>
         </div>
         <!-- short-comments -->
-        <div class="col l10 s12 m12 offset-l1">
-            <div class="card-panel" v-for="comment of shortComments">
+        <div class="col l12 s12 m12" v-for="comment of shortComments">
+            <div class="card-panel">
               <p>
-                <img :src="comment.avatar | imageUrlPrefix">
-                <i class="material-icons">account_circle</i>
-                <span>{{ comment.author }}</span>
-                <i class="material-icons">thumb_up</i>
-                <span>{{ comment.likes }}</span>
+                  <img :src="comment.avatar | imageUrlPrefix">
+                  <i class="material-icons">account_circle</i>
+                  <span>{{ comment.author }}</span>
+                  <i class="material-icons">thumb_up</i>
+                  <span>{{ comment.likes }}</span>
               </p>
               <p class="flow-text comment-content">{{ comment.content }}</p>
             </div>
         </div>
-    </div>
+     </div>
   </div>
 </template>
 
