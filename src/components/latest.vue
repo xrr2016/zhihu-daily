@@ -43,7 +43,7 @@
               </div>
             </div>
           </router-link>
-        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -89,14 +89,6 @@ export default {
     position: relative;
     min-height: 100vh;
     padding-bottom: 50px;
-    .app-loading{
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: auto;
-    }
     .top-stories-list,.stories-list{
       position: relative;
       display: flex;

@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="row">
+    <div id="app" >
       <app-navbar></app-navbar>
       <router-view></router-view>
       <app-footer></app-footer>
@@ -31,6 +31,14 @@ export default {
       font-family: Roboto,'Avenir', Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      .app-loading{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
     }
   }
 </style>

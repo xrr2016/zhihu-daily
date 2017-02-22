@@ -7,7 +7,7 @@
               <img class="app-logo" :src="logo" alt="知乎日报" title="首页">
             </router-link>
             <span class="brand-logo center app-route-name">
-              {{ routeName }}
+              {{ this.$route.params.id | routeName }}
             </span>
             <a href="#" class="right dropdown-button waves-effect waves-light" data-activates="subjects">
               主题日报<i class="material-icons right">arrow_drop_down</i>
@@ -35,47 +35,18 @@
     },
     data () {
       return {
-        subjects :[],
+        subjects :[{id : 1,name : '首页',description : '知乎日报'}],
         logo
       }
     },
-    computed: {
-      routeName(){
-        switch (this.$route.params.id) {
-          case '13':
-            return '日常心里学'
-          case '12':
-            return '用户推荐日报'
-          case '3':
-            return '电影日报'
-          case '11':
-            return '不许无聊'
-          case '4':
-            return '设计日报'
-          case '5':
-            return '大公司日报'
-          case '6':
-            return '财经日报'
-          case '10':
-            return '互联网安全'
-          case '2':
-            return '开始游戏'
-          case '7':
-            return '音乐日报'
-          case '9':
-            return '动漫日报'
-          case '8':
-            return '体育日报'
-          default:
-            return '首页'
-        }
-      }
-    },
+    computed: {},
     methods: {
       getSubjects(){
         this.$http('/api/4/themes')
             .then(res => {
-              this.subjects = res.data.others
+              res.data.others.map(subject => {
+                this.subjects.push(subject)
+              })
             })
             .catch(e => {
               console.log(e)
