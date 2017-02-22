@@ -6,7 +6,7 @@
   结合Vuejs和Materialize框架开发的一个web端知乎日报.
 
 ## 开发流程
-    
+
 ## Build Setup
 
 ``` bash
@@ -48,19 +48,19 @@ npm run build --report
 
 9. 主题日报列表查看: http://news-at.zhihu.com/api/4/themes
 
-10. 主题日报内容查看: http://news-at.zhihu.com/api/4/theme/11
+ 10. 主题日报内容查看: http://news-at.zhihu.com/api/4/theme/11
 
-11. 热门消息: http://news-at.zhihu.com/api/3/news/hot
+ 11. 热门消息: http://news-at.zhihu.com/api/3/news/hot
 
-12. 栏目总览: http://news-at.zhihu.com/api/3/sections
+ 12. 栏目总览: http://news-at.zhihu.com/api/3/sections
 
-13. 栏目具体消息查看: http://news-at.zhihu.com/api/3/section/1
+ 13. 栏目具体消息查看: http://news-at.zhihu.com/api/3/section/1
 
-14. 查看新闻的推荐者: http://news-at.zhihu.com/api/4/story/#{id}/recommenders
+ 14. 查看新闻的推荐者: http://news-at.zhihu.com/api/4/story/#{id}/recommenders
 
-15. 获取某个专栏之前的新闻: http://news-at.zhihu.com/api/4/section/#{section id}/before/#{timestamp}
+ 15. 获取某个专栏之前的新闻: http://news-at.zhihu.com/api/4/section/#{section id}/before/#{timestamp}
 
-16. 查看 Editor 的主页
+ 16. 查看 Editor 的主页
 
     Android: http://news-at.zhihu.com/api/4/editor/#{id}/profile-page/android
 
