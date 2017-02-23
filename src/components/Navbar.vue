@@ -9,9 +9,16 @@
             <span class="brand-logo center app-route-name">
               {{ this.$route.params.id | routeName }}
             </span>
-            <a href="#" class="right dropdown-button waves-effect waves-light" data-activates="subjects">
-              主题日报<i class="material-icons right">arrow_drop_down</i>
-            </a>
+            <!-- 右导航 -->
+              <ul id="nav-mobile" class="right">
+                <li>
+                  <router-link class="app-favorites" to="/favorites">我的收藏</router-link>
+                </li>
+                <li>
+                  <a class="dropdown-button waves-effect waves-light" data-activates="subjects">
+                    主题日报<i class="material-icons right">arrow_drop_down</i></a>
+                </li>
+              </ul>
           </div>
         </nav>
     </div>
@@ -77,12 +84,10 @@
     }
     .dropdown-button{
       display: block;
-      font-size: 16px;
-      padding-right: 90px;
+      font-size: 14px;
     }
-    // .app-github{
-    //   padding: 12px;
-    //   height: 60px;
-    // }
+    .app-favorites{
+      font-size: 14px;
+    }
   }
 </style>

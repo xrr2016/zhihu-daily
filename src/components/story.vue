@@ -52,6 +52,14 @@
               <p class="flow-text comment-content">{{ comment.content }}</p>
             </div>
         </div>
+        <!-- actions -->
+        <div class="story-actions">
+           <a class="btn-floating btn-large waves-effect waves-light purple lighten-2" @click="removeFavoriteStory" v-if="favorite"><i class="material-icons">favorite</i></a>
+
+           <a class="btn-floating btn-large waves-effect waves-light purple lighten-2" @click="addFavoriteStory" v-else="favorite"><i class="material-icons">favorite_border</i></a>
+
+           <a class="btn-floating btn-large waves-effect waves-light purple lighten-2"><i class="material-icons">keyboard_return</i></a>
+        </div>
      </div>
   </div>
 </template>
@@ -66,7 +74,8 @@ export default {
       story: {},
       longComments: [],
       shortComments: [],
-      loading: true
+      loading: true,
+      favorite: false
     }
   },
   methods: {
@@ -100,6 +109,21 @@ export default {
                   console.log(e)
                 })
     },
+    addFavoriteStory(){
+      let story = {
+        id: this.story.id,
+        title: this.story.title,
+        image: this.story.images[0],
+        created_at: Date.now()
+      }
+      this.$store.dispatch('addFavoriteStory', {story})
+      this.favorite = true
+    },
+    removeFavoriteStory(){
+      let story = {id: this.story.id}
+      this.$store.dispatch('removeFavoriteStory',{story})
+      this.favorite = false
+    }
   },
   computed: {
     storyBody() {
@@ -121,6 +145,19 @@ export default {
     padding-bottom: 50px;
     .comment-content {
       font-size: 16px;
+    }
+    .story-actions {
+      position: fixed;
+      top: 40%;
+      right: 6%;
+      display: flex;
+      min-height: 124px;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      .material-icons{
+        font-size: 30px;
+      }
     }
   }
 </style>
