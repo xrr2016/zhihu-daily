@@ -49,7 +49,7 @@ Vue.filter('routeName', (id) => {
 
 new Vue({
   created () {
-    toastr.success('I do not think that word means what you think it means.')
+    toastr.success('Welcome!')
     this.$store.dispatch('getLocalFavoriteStories')
   },
   router,

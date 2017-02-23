@@ -13,7 +13,7 @@
     </div>
     <div class="row top-stories-list" v-else>
       <!-- top_stories -->
-      <router-link tag="a" class="col l4 m12 s12 top-story-item"
+      <router-link class="col l4 m12 s12 top-story-item"
           :to="{name: 'story', params: {id: topStory.id }}" v-for="topStory of topStories">
           <div class="card hoverable">
             <div class="card-image">
@@ -34,7 +34,7 @@
       </div>
       <!-- stories -->
       <div class="stories-list">
-          <router-link tag="a" class="col l10 m10 s10 story-item"
+          <router-link class="col l10 m10 s10 story-item"
             :to="{name: 'story', params: {id: story.id }}" v-for="story of stories">
             <div class="card horizontal hoverable">
               <div class="card-image"><img :src="story.images[0] | imageUrlPrefix"></div>
@@ -61,6 +61,9 @@ export default {
       loading: true
     }
   },
+  watch: {
+    'date': 'getStoriesBydate'
+  },
   methods:{
     getLatest(){
       this.$http.get('/api/4/news/latest')
@@ -73,6 +76,20 @@ export default {
                 .catch(e => {
                   console.log(e)
                 })
+    },
+    getStoriesBydate(){
+      const date = new Date().getDate()
+      if (parseInt(('' + this.date).slice(-2)) > date) {
+        return
+      } else {
+        this.$http.get(`/api/4/news/before/${this.date}`)
+                      .then(res => {
+                          this.stories = res.data.stories
+                      })
+                      .catch(e => {
+                        console.log(e)
+                    })
+      }
     },
     prev(){
       this.date -= 1

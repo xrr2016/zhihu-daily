@@ -26,30 +26,29 @@
         <div class="divider" v-else></div>
         <!-- content-body -->
         <div class="col l12 s12 m12" v-html="storyBody"></div>
-        <!-- long-comments -->
         <div class="col l12 s12 m12">
-            <div class="card-panel" v-for="comment of longComments">
-                <div class="card-header">
+            <!-- long-comments -->
+            <p style="color:#999;">评论</p>
+            <div class="card-panel comments" v-for="comment of longComments">
+                <div class="valign-wrapper comment-info">
                   <img :src="comment.avatar | imageUrlPrefix">
-                  <i class="material-icons">account_circle</i>
-                  <span>{{ comment.author }}</span>
-                  <i class="material-icons">thumb_up</i>
-                  <span>{{ comment.likes }}</span>
+                  <i class="material-icons margin-left">account_circle</i>
+                  <span>&nbsp;{{ comment.author }}</span>
+                  <i class="material-icons margin-left">thumb_up</i>
+                  <span>&nbsp;{{ comment.likes }}</span>
                 </div>
-                <p class="flow-text comment-content">{{ comment.content }}</p>
+                <p class="comment-content">{{ comment.content }}</p>
             </div>
-        </div>
-        <!-- short-comments -->
-        <div class="col l12 s12 m12" v-for="comment of shortComments">
-            <div class="card-panel">
-              <p>
+            <!-- short-comments -->
+            <div class="card-panel comments" v-for="comment of shortComments">
+                <div class="valign-wrapper comment-info">
                   <img :src="comment.avatar | imageUrlPrefix">
-                  <i class="material-icons">account_circle</i>
-                  <span>{{ comment.author }}</span>
-                  <i class="material-icons">thumb_up</i>
-                  <span>{{ comment.likes }}</span>
-              </p>
-              <p class="flow-text comment-content">{{ comment.content }}</p>
+                  <i class="material-icons margin-left">account_circle</i>
+                  <span>&nbsp;{{ comment.author }}</span>
+                  <i class="material-icons margin-left">thumb_up</i>
+                  <span>&nbsp;{{ comment.likes }}</span>
+                </div>
+                <p class="comment-content">{{ comment.content }}</p>
             </div>
         </div>
         <!-- actions -->
@@ -57,14 +56,15 @@
            <a class="btn-floating btn-large waves-effect waves-light purple lighten-2" @click="removeFavoriteStory" v-if="favorite"><i class="material-icons">favorite</i></a>
 
            <a class="btn-floating btn-large waves-effect waves-light purple lighten-2" @click="addFavoriteStory" v-else="favorite"><i class="material-icons">favorite_border</i></a>
-
-           <a class="btn-floating btn-large waves-effect waves-light purple lighten-2"><i class="material-icons">keyboard_return</i></a>
+           <!-- 返回上级按钮 -->
+           <a class="btn-floating btn-large waves-effect waves-light purple lighten-2"><i class="material-icons" @click="goBack">keyboard_return</i></a>
         </div>
      </div>
   </div>
 </template>
 
 <script>
+import toastr from 'toastr'
 export default {
   created() {
     this.getStory(this.$route.params.id)
@@ -79,6 +79,7 @@ export default {
     }
   },
   methods: {
+    // 获取文章
     getStory(storyId) {
       this.$http.get(`/api/4/news/${storyId}`)
                 .then(res => {
@@ -89,6 +90,7 @@ export default {
                   console.log(e)
                 })
     },
+    // 获取文章长评
     getLongComments(storyId) {
       this.$http.get(`/api/4/story/${storyId}/long-comments`)
                 .then(res => {
@@ -99,6 +101,7 @@ export default {
                   console.log(e)
                 })
     },
+    // 获取文章短评
     getShortComments(storyId) {
       this.$http.get(`/api/4/story/${storyId}/short-comments`)
                 .then(res => {
@@ -109,6 +112,7 @@ export default {
                   console.log(e)
                 })
     },
+    // 添加收藏
     addFavoriteStory(){
       let story = {
         index: window.localStorage.length,
@@ -119,11 +123,18 @@ export default {
       }
       this.$store.dispatch('addFavoriteStory', story)
       this.favorite = true
+      toastr.success('收藏成功')
     },
+    // 取消收藏
     removeFavoriteStory(){
       let story = {id: this.story.id}
       this.$store.dispatch('removeFavoriteStory',{story})
       this.favorite = false
+      toastr.success('取消收藏成功')
+    },
+    // 返回上级
+    goBack(){
+      this.$router.go(-1)
     }
   },
   computed: {
@@ -144,8 +155,19 @@ export default {
   .story {
     min-height: 100vh;
     padding-bottom: 50px;
-    .comment-content {
-      font-size: 16px;
+    .margin-left{
+      margin-left: 12px;
+    }
+    .comments {
+      padding: 12px 12px;
+      .comment-info{
+        font-size: 18px;
+      }
+      .comment-content {
+        letter-spacing: 1px;
+        font-size: 16px;
+        text-indent: 2em;
+      }
     }
     .story-actions {
       position: fixed;

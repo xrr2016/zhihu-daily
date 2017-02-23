@@ -30,18 +30,18 @@
       </div>
       <!-- subject stories -->
       <div class="stories-list">
-          <router-link tag="a" class="col l12 m10 s10 story-item"
-            :to="{name: 'story', params: {id: story.id }}" v-for="story of subject.stories">
-            <div class="card horizontal hoverable">
-              <div class="card-image" v-if="!!story.images">
-                <img :src="story.images[0] | imageUrlPrefix">
-              </div>
-              <span class="" v-else></span>
-              <div class="card-stacked">
-                <div class="card-content"><p class="flow-text">{{ story.title }}</p></div>
-              </div>
+        <router-link tag="a" class="col l12 m10 s10 story-item"
+          :to="{name: 'story', params: {id: story.id }}" v-for="story of subject.stories">
+          <div class="card horizontal hoverable">
+            <div class="card-image" v-if="!!story.images">
+              <img :src="story.images[0] | imageUrlPrefix">
             </div>
-          </router-link>
+            <span class="" v-else></span>
+            <div class="card-stacked">
+              <div class="card-content"><p class="flow-text">{{ story.title }}</p></div>
+            </div>
+          </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@
 <script>
 export default {
   created(){
-    this.getSubject(this.$route.params.id)
+    this.getSubject()
   },
   data(){
     return {
@@ -58,9 +58,12 @@ export default {
       loading: true
     }
   },
+  watch: {
+    '$route': 'getSubject'
+  },
   methods:{
-    getSubject(themeId){
-      this.$http.get(`/api/4/theme/${themeId}`)
+    getSubject(){
+      this.$http.get(`/api/4/theme/${this.$route.params.id}`)
                 .then(res => {
                   this.subject = res.data
                   this.loading = false
