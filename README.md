@@ -1,11 +1,52 @@
 # 一款简洁美观的web版知乎日报
 
-## 效果图    
+结合Vuejs和Materialize框架开发的一个简单的web端知乎日报, 拥有本地收藏功能.
+
+## 效果图
+首页图
+![index](./demo/index.gif)
+查看文章
+![story](./demo/story.gif)
+切换主题
+![subject](./demo/subject.gif)
+收藏文章
+![favorite](./demo/favorite.gif)
+热门文章
+![hot](./demo/hot.gif)
+首页切换日期
+![switchDate](./demo/date.gif)   
 
 ## 简介
-  结合Vuejs和Materialize框架开发的一个web端知乎日报.
 
 ## 开发流程
+
+首先使用vue-cli按提示创建好项目, 然后依自己需要安装依赖, 我选择了
+
+我觉得挺好看的[Materialize](http://materializecss.com/)作为UI框架, 还有[toastr](https://github.com/CodeSeven/toastr),
+
+ 一个弹出toast的库, 然后参考了[Gallery](https://themes.materializecss.com/pages/demo)和
+
+ (colorhurt)[http://colorhunt.co/], 这两个网站的风格, 设计了页面.
+
+```bash
+npm install materialize-css toastr --save
+```
+
+安装完全部依赖, 删除不需要的文件.
+
+因为跨域的原因, 对config/index.js里面的proxyTable进行设置,是的开发的时候方便获取数据, 详细内容参考[文档](https://vuejs-templates.github.io/webpack/proxy.html).
+```javascript
+proxyTable: {
+  '/api': {
+    target: 'http://news-at.zhihu.com',
+    changeOrigin: true
+  }
+},
+```
+接下来分析需要的几个组件, 顶部导航栏, 页脚, 首页, 显示文章页面, 显示主题日报页面和显示已收藏文章的页面,
+
+在src/compoments文件夹里面创建. 
+
 
 ## Build Setup
 
@@ -24,42 +65,6 @@ npm run build --report
 ```
 ## 知乎日报API
 
-感谢[知乎日报 API 分析](https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90)  
-
-1. 启动界面图像获取: http://news-at.zhihu.com/api/4/start-image/1080\*1776
-
-2. 软件版本查询
- Android: http://news-at.zhihu.com/api/4/version/android/2.3.0
- iOS: http://news-at.zhihu.com/api/4/version/ios/2.3.0
-
-3. 最新消息: http://news-at.zhihu.com/api/4/news/latest      
-
-4. 消息内容获取与离线下载: http://news-at.zhihu.com/api/4/news/3892357
-
-5. 过往消息: http://news-at.zhihu.com/api/4/news/before/20131119
-
-6. 新闻额外信息: http://news-at.zhihu.com/api/4/story-extra/#{id}
-
-7. 新闻对应长评论查看: http://news-at.zhihu.com/api/4/story/8997528/long-comments
-
-8. 新闻对应短评论查看: http://news-at.zhihu.com/api/4/story/4232852/short-comments
-
-9. 主题日报列表查看: http://news-at.zhihu.com/api/4/themes
-
-10. 主题日报内容查看: http://news-at.zhihu.com/api/4/theme/11
-
-11. 热门消息: http://news-at.zhihu.com/api/3/news/hot
-
-12. 栏目总览: http://news-at.zhihu.com/api/3/sections
-
-13. 栏目具体消息查看: http://news-at.zhihu.com/api/3/section/1
-
-14. 查看新闻的推荐者: http://news-at.zhihu.com/api/4/story/#{id}/recommenders
-
-15. 获取某个专栏之前的新闻: http://news-at.zhihu.com/api/4/section/#{section id}/before/#{timestamp}
-
-16. 查看 Editor 的主页
- Android: http://news-at.zhihu.com/api/4/editor/#{id}/profile-page/android
- iOS: http://news-at.zhihu.com/api/4/editor/#{id}/profile-page/ios
+感谢[知乎日报 API 分析](https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90)提供的接口
 
 written by [xrr2016](https://github.com/xrr2016),欢迎issue,fork,star.
