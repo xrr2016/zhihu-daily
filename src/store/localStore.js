@@ -1,13 +1,13 @@
 const W = window
 
 function addLocalStory (story) {
-  let localStory = W.localStorage.getItem(`${story.id}`)
+  let storyIndex = W.localStorage.getItem(`${story.index}`)
   if (!story) {
     return
-  } else if (localStory !== null) {
+  } else if (storyIndex !== null) {
     return
   } else {
-    W.localStorage.setItem(`${'' + story.id}`, JSON.stringify(story))
+    W.localStorage.setItem(`${'' + story.index}`, JSON.stringify(story))
   }
   return `${story.id} is added`
 }

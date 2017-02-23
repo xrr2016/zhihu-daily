@@ -50,6 +50,7 @@ Vue.filter('routeName', (id) => {
 new Vue({
   created () {
     toastr.success('I do not think that word means what you think it means.')
+    this.$store.dispatch('getLocalFavoriteStories')
   },
   router,
   store,

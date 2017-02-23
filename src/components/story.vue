@@ -111,12 +111,13 @@ export default {
     },
     addFavoriteStory(){
       let story = {
+        index: window.localStorage.length,
         id: this.story.id,
         title: this.story.title,
         image: this.story.images[0],
         created_at: Date.now()
       }
-      this.$store.dispatch('addFavoriteStory', {story})
+      this.$store.dispatch('addFavoriteStory', story)
       this.favorite = true
     },
     removeFavoriteStory(){
