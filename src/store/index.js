@@ -31,7 +31,7 @@ const store = new Vuex.Store({
       state.favorites.splice(storyIndex, 1)
       removeLocalStory(story)
     },
-    clearFavoriteStorie (state) {
+    clearStories (state) {
       state.favorites.length = 0
       clearLocalStories()
     },
