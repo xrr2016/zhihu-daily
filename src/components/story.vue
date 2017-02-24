@@ -81,7 +81,7 @@ export default {
   methods: {
     // 获取文章
     getStory(storyId) {
-      this.$http.get(`/api/4/news/${storyId}`)
+      this.$http.get(`${this.$url}/api/4/news/${storyId}`)
                 .then(res => {
                   this.story = res.data
                   this.getLongComments(this.$route.params.id)
@@ -92,7 +92,7 @@ export default {
     },
     // 获取文章长评
     getLongComments(storyId) {
-      this.$http.get(`/api/4/story/${storyId}/long-comments`)
+      this.$http.get(`${this.$url}/api/4/story/${storyId}/long-comments`)
                 .then(res => {
                   this.longComments = res.data.comments
                   this.getShortComments(this.$route.params.id)
@@ -103,7 +103,7 @@ export default {
     },
     // 获取文章短评
     getShortComments(storyId) {
-      this.$http.get(`/api/4/story/${storyId}/short-comments`)
+      this.$http.get(`${this.$url}/api/4/story/${storyId}/short-comments`)
                 .then(res => {
                   this.shortComments = res.data.comments
                   this.loading = false

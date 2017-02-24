@@ -63,7 +63,7 @@ export default {
   },
   methods:{
     getSubject(){
-      this.$http.get(`/api/4/theme/${this.$route.params.id}`)
+      this.$http.get(`${this.$url}/api/4/theme/${this.$route.params.id}`)
                 .then(res => {
                   this.subject = res.data
                   this.loading = false

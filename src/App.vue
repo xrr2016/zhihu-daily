@@ -1,9 +1,7 @@
 <template>
     <div id="app" class="row">
       <app-navbar></app-navbar>
-      <transition name="fade">
-        <router-view></router-view>
-      </transtion>
+      <router-view></router-view>
       <app-footer></app-footer>
     </div>
 </template>
@@ -33,12 +31,6 @@ export default {
       font-family: Roboto,'Avenir', Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      .fade-enter-active, .fade-leave-active {
-        transition: opacity .5s
-      }
-      .fade-enter, .fade-leave-active {
-        opacity: 0
-      }
       .app-loading{
         position: absolute;
         top: 0;

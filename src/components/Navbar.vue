@@ -54,7 +54,7 @@
     },
     methods: {
       getSubjects(){
-        this.$http('/api/4/themes')
+        this.$http(`${this.$url}/api/4/themes`)
             .then(res => {
               res.data.others.map(subject => {
                 this.subjects.push(subject)

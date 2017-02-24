@@ -66,7 +66,7 @@ export default {
   },
   methods:{
     getLatest(){
-      this.$http.get('/api/4/news/latest')
+      this.$http.get(`${this.$url}/api/4/news/latest`)
                 .then(res => {
                     this.date = parseInt(res.data.date, 10) + 1
                     this.stories = res.data.stories
@@ -82,7 +82,7 @@ export default {
       if (parseInt(('' + this.date).slice(-2)) > date) {
         return
       } else {
-        this.$http.get(`/api/4/news/before/${this.date}`)
+        this.$http.get(`${this.$url}/api/4/news/before/${this.date}`)
                       .then(res => {
                           this.stories = res.data.stories
                       })

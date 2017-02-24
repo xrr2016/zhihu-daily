@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     getHotStories(){
-      this.$http.get('/api/3/news/hot')
+      this.$http.get(`${this.$url}/api/3/news/hot`)
                 .then(res => {
                   this.hotStories = res.data.recent
                 })
@@ -45,6 +45,9 @@ export default {
 
 <style lang="scss" scoped>
   .hot {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 50px;
     .flow-text {
       font-size: 20px;
     }

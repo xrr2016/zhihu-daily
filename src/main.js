@@ -11,7 +11,7 @@ import 'materialize-css/dist/css/materialize.min.css'
 const jsonBird = 'https://bird.ioliu.cn/v1/?url='
 const zhihu = 'http://news-at.zhihu.com'
 
-Vue.prototype.URL = `${jsonBird}${zhihu}`
+Vue.prototype.$url = `${jsonBird}${zhihu}`
 Vue.prototype.$http = axios
 Vue.filter('imageUrlPrefix', (value) => {
   const url = value.substr(7)
