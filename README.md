@@ -1,13 +1,11 @@
 # 一款简洁美观的web版知乎日报
 
-结合Vuejs和Materialize框架开发的一个简单的web端知乎日报, 拥有本地收藏功能.
-
 ## 效果图
-首页图
+首页
 ![index](./demo/index.gif)
 查看文章
 ![story](./demo/story.gif)
-切换主题
+主题日报
 ![subject](./demo/subject.gif)
 收藏文章
 ![favorite](./demo/favorite.gif)
@@ -18,15 +16,17 @@
 
 ## 简介
 
+一个应用(Vuejs)[https://cn.vuejs.org/]的纯前端项目, (vue-router)[https://router.vuejs.org/]做前端路由跳转, 结合(vuex)[https://vuex.vuejs.org/]和localStroage开发了收藏功能, 使用(axios)[https://github.com/mzabriskie/axios]进行资源请求.
+
 ## 开发流程
 
-首先使用vue-cli按提示创建好项目, 然后依自己需要安装依赖, 我选择了
+首先使用vue-cli按提示创建好项目, 然后依自己需要安装依赖, 我选择了我觉得挺好
 
-我觉得挺好看的[Materialize](http://materializecss.com/)作为UI框架, 还有[toastr](https://github.com/CodeSeven/toastr),
+看的[Materialize](http://materializecss.com/)作为UI框架, 还有[toastr](https://github.com/CodeSeven/toastr),
 
  一个弹出toast的库, 然后参考了[Gallery](https://themes.materializecss.com/pages/demo)和
 
- (colorhurt)[http://colorhunt.co/], 这两个网站的风格, 设计了页面.
+ [colorhurt](http://colorhunt.co/), 这两个网站的风格, 设计了页面.
 
 ```bash
 npm install materialize-css toastr --save
@@ -43,9 +43,10 @@ proxyTable: {
   }
 },
 ```
-接下来分析需要的几个组件, 顶部导航栏, 页脚, 首页, 显示文章页面, 显示主题日报页面和显示已收藏文章的页面,
+接下来分析需要的几个组件, 顶部导航栏compoments/navbar.vue, 主要功能是导航, 和显示路由的位置
+ 页脚, 首页, 显示文章页面, 显示主题日报页面和显示已收藏文章的页面,
 
-在src/compoments文件夹里面创建. 
+在src/compoments文件夹里面创建.
 
 
 ## Build Setup

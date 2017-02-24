@@ -2,13 +2,16 @@ import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
 import toastr from 'toastr'
-// import $ from 'jquery'
 import router from './router'
 import store from './store'
 import './assets/material.font.css'
 import 'materialize-css/dist/js/materialize.min.js'
 import 'materialize-css/dist/css/materialize.min.css'
 
+const jsonBird = 'https://bird.ioliu.cn/v1/?url='
+const zhihu = 'http://news-at.zhihu.com'
+
+Vue.prototype.URL = `${jsonBird}${zhihu}`
 Vue.prototype.$http = axios
 Vue.filter('imageUrlPrefix', (value) => {
   const url = value.substr(7)

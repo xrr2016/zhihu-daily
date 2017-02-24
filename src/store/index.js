@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {addLocalStory, removeLocalStory, clearLocalStories} from './localStore'
-// const jsonBird = 'https://bird.ioliu.cn/v1/?url='
-// const zhihuAPI = 'http://news-at.zhihu.com/api/4/news'
 
 Vue.use(Vuex)
 
