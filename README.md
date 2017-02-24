@@ -18,7 +18,7 @@
 
 ## 简介
 
-一个适合用来学习(Vuejs)[https://cn.vuejs.org/]的小项目, 纯前端项目, 使用(vue-router)[https://router.vuejs.org/]做前端路由跳转, 结合(vuex)[https://vuex.vuejs.org/]和localStroage开发了收藏功能, 使用(axios)[https://github.com/mzabriskie/axios]进行资源请求.
+一个适合用来学习[Vuejs](https://cn.vuejs.org/)的小项目, 纯前端项目, 使用[vue-router](https://router.vuejs.org/)做前端路由跳转, 结合[vuex}(https://vuex.vuejs.org/)和localStroage开发了收藏功能, 使用[axios](https://github.com/mzabriskie/axios)进行资源请求.
 
 在页面里使用[watch](https://cn.vuejs.org/v2/api/#watch)来监听需要改变的值, [filter](https://cn.vuejs.org/v2/guide/syntax.html#Filters)将值格式化成需要格式.
 
@@ -66,7 +66,8 @@ proxyTable: {
 ```
 
 然后将router-view放到App.vue里面.
-```
+
+```javascript
 <div id="app" class="row">
   <app-navbar></app-navbar>
   <router-view></router-view>
@@ -76,8 +77,15 @@ proxyTable: {
 
 路由配置完后, 应用[localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage)来开发收藏文章的功能. 就是将文章的内容存储到本地, 这样就可以在没网络的时候看文章了. [localStore.js](./src/store/localStore.js)
 
-主要有addLocalStory, 添加一个文章; removeLocalStory, 删除一个文章;
-totalLocalStoryNum, 返回收藏的文章总数; clearLocalStories, 清除全部收藏文章;
+主要有
+
+addLocalStory, 添加一个文章;
+removeLocalStory, 删除一个文章;
+totalLocalStoryNum, 返回收藏的文章总数;
+clearLocalStories, 清除全部收藏文章;
+
+![localStore](./demo/localStore.png)
+
 有了这几个方法就可以对收藏的文章进行管理.
 
 接下来完成组件部分, 对照[materialize](http://materializecss.com/)的文档写好页面,
