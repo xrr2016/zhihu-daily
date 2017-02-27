@@ -18,7 +18,7 @@
             </span>
             <!-- 右导航 -->
             <ul id="nav-mobile" class="right">
-              <li><a class="dropdown-button" data-activates="subjects">主题日报</button></li>
+              <li><a class="dropdown-button" data-activates="subjects">主题日报</a></li>
               <li><a class="dropdown-button" data-activates="others">
                 <i class="material-icons">more_vert</i></a>
               </li>
